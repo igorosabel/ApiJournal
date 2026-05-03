@@ -1,0 +1,13 @@
+{
+	"db": {
+		"host": "localhost",
+		"user": "journal",
+		"pass": "_xIh&MAmyy1le30l",
+		"name": "journal"
+	},
+	"log_level": "ERROR",
+	"base_url": "https://apijournal.osumi.es/",
+	"extra": {
+		"secret": "4a17c358cadf9b4658eff27eb24d0984"
+	}
+}
