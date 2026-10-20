@@ -1,0 +1,9 @@
+{
+	"status": "{{status}}",
+	"user": {
+		"id": {{id}},
+		"name": "{{name}}",
+		"pass": "",
+		"token": "{{token}}"
+	}
+}

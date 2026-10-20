@@ -4,6 +4,7 @@ namespace Osumi\OsumiFramework\App\Module\Home\Start;
 
 use Osumi\OsumiFramework\Core\OComponent;
 use Osumi\OsumiFramework\Routing\OUrl;
+use Osumi\OsumiFramework\Web\ORequest;
 
 class StartComponent extends OComponent {
 	/**

@@ -7,6 +7,7 @@ use Osumi\OsumiFramework\ORM\OPK;
 use Osumi\OsumiFramework\ORM\OField;
 use Osumi\OsumiFramework\ORM\OCreatedAt;
 use Osumi\OsumiFramework\ORM\OUpdatedAt;
+use Osumi\OsumiFramework\ORM\ODB;
 
 class Tag extends OModel {
 	#[OPK(
@@ -27,7 +28,7 @@ class Tag extends OModel {
 
 	#[OField(
 		comment: 'Nombre de la etiqueta',
-		max: 20,
+		max: 50,
 		nullable: false
 	)]
 	public ?string $name;
@@ -35,7 +36,8 @@ class Tag extends OModel {
 	#[OField(
 		type: OField::DATE,
 		comment: 'Fecha de último uso de la etiqueta',
-		nullable: false
+		nullable: true,
+		default: null
 	)]
 	public ?string $last_used_at;
 
@@ -97,5 +99,15 @@ class Tag extends OModel {
 		}
 
 		$this->entries = $list;
+	}
+
+	public function deleteFull(): void {
+		$db = new ODB();
+		$sql = "UPDATE `tag` SET `id_parent` = ? WHERE `id_parent` = ?";
+		$db->query($sql, [$this->id_parent, $this->id]);
+		$sql = "DELETE FROM `entry_tag` WHERE `id_tag` = ?";
+		$db->query($sql, [$this->id]);
+
+		$this->delete();
 	}
 }

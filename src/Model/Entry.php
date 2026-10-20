@@ -89,4 +89,15 @@ class Entry extends OModel {
 
 		$this->tags = $list;
 	}
+
+	/**
+	 * Método para borrar las etiquetas de una entrada
+	 *
+	 * @return void
+	 */
+	public function cleanTags(): void {
+		$db = new ODB();
+		$sql = "DELETE FROM `entry_tag` WHERE `id_entry` = ?";
+		$db->query($sql, [$this->id]);
+	}
 }
