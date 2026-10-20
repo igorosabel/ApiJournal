@@ -20,7 +20,7 @@ class GetEntryComponent extends OComponent {
 	public function run(ORequest $req): void {
     $id = $req->getParamInt('id');
     $this->entry  = new EntryComponent();
-    $login_filter = $req->getFilter('Login');
+    $login_filter = $req->getMiddleware('Login');
 
     if (is_null($id) || $login_filter['status'] !== 'ok') {
       $this->status = 'error';

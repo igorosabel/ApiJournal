@@ -32,7 +32,7 @@ class GetHomeComponent extends OComponent {
     $this->tag     = new TagComponent();
     $this->tags    = new TagListComponent();
     $this->entries = new EntryListComponent();
-    $login_filter  = $req->getFilter('Login');
+    $login_filter  = $req->getMiddleware('Login');
 
     if ($login_filter['status'] !== 'ok') {
       $this->status = 'error';

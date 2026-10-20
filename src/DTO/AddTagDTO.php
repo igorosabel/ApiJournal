@@ -12,6 +12,6 @@ class AddTagDTO extends ODTO {
   #[ODTOField]
 	public ?int $idParent = null;
 
-  #[ODTOField(required: true, filter: 'Login', filterProperty: 'id')]
+  #[ODTOField(required: true, middleware: 'Login', middlewareProperty: 'id')]
   public ?int $idUser = null;
 }

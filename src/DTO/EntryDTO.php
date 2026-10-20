@@ -18,6 +18,6 @@ class EntryDTO extends ODTO {
   #[ODTOField(required: true)]
 	public ?array $tags = [];
 
-  #[ODTOField(required: true, filter: 'Login', filterProperty: 'id')]
+  #[ODTOField(required: true, middleware: 'Login', middlewareProperty: 'id')]
   public ?int $idUser = null;
 }

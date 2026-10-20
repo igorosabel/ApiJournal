@@ -15,6 +15,6 @@ class EditTagDTO extends ODTO {
 	#[ODTOField(required: true)]
 	public ?string $name = null;
 
-  #[ODTOField(required: true, filter: 'Login', filterProperty: 'id')]
+  #[ODTOField(required: true, middleware: 'Login', middlewareProperty: 'id')]
   public ?int $idUser = null;
 }

@@ -34,7 +34,7 @@ class Tag extends OModel {
 	public ?string $name;
 
 	#[OField(
-		type: OField::DATE,
+		type: OField::DATETIME,
 		comment: 'Fecha de último uso de la etiqueta',
 		nullable: true,
 		default: null

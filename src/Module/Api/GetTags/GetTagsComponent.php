@@ -19,7 +19,7 @@ class GetTagsComponent extends OComponent {
 	 */
 	public function run(ORequest $req): void {
     $this->tags   = new TagListComponent();
-    $login_filter = $req->getFilter('Login');
+    $login_filter = $req->getMiddleware('Login');
 
     if ($login_filter['status'] !== 'ok') {
       $this->status = 'error';

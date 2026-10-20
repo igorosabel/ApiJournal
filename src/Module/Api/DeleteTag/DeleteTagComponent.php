@@ -17,7 +17,7 @@ class DeleteTagComponent extends OComponent {
 	 */
 	public function run(ORequest $req): void {
     $id_tag       = $req->getParamInt('id');
-    $login_filter = $req->getFilter('Login');
+    $login_filter = $req->getMiddleware('Login');
 
     if (is_null($id_tag) || $login_filter['status'] !== 'ok') {
       $this->status = 'error';
